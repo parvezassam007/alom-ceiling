@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parbez Works | Billing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <h1>PARBEZ WORKS</h1>
+      <p>Electrical • False Ceiling • Plumbing</p>
+    </div>
+    <button onclick="window.print()">🖨️ Print / PDF</button>
+  </header>
+
+  <main>
+
+    <section class="card">
+      <h2>Invoice Details</h2>
+
+      <div class="grid">
+        <div>
+          <label>Invoice No.</label>
+          <input id="invoiceNo" placeholder="PW-001">
+        </div>
+
+        <div>
+          <label>Date</label>
+          <input id="date" type="date">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Customer Details</h2>
+
+      <label>Customer Name</label>
+      <input id="customerName" placeholder="Enter customer name">
+
+      <label>Phone Number</label>
+      <input id="customerPhone" type="tel" placeholder="Enter phone number">
+
+      <label>Address</label>
+      <textarea id="customerAddress" placeholder="Enter customer address"></textarea>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>Work / Items</h2>
+        <button class="add-btn" onclick="addItem()">+ Add Item</button>
+      </div>
+
+      <div id="items"></div>
+    </section>
+
+    <section class="card totals">
+      <div>
+        <span>Subtotal</span>
+        <strong>₹<span id="subtotal">0.00</span></strong>
+      </div>
+
+      <div>
+        <span>Discount</span>
+        <input id="discount" type="number" value="0" min="0" oninput="calculateTotal()">
+      </div>
+
+      <div class="grand">
+        <span>Total</span>
+        <strong>₹<span id="total">0.00</span></strong>
+      </div>
+
+      <div>
+        <span>Paid</span>
+        <input id="paid" type="number" value="0" min="0" oninput="calculateTotal()">
+      </div>
+
+      <div class="due">
+        <span>Due</span>
+        <strong>₹<span id="due">0.00</span></strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Payment Status</h2>
+
+      <select id="paymentStatus">
+        <option value="Pending">Pending</option>
+        <option value="Partially Paid">Partially Paid</option>
+        <option value="Paid">Paid</option>
+      </select>
+
+      <label>Notes</label>
+      <textarea id="notes" placeholder="Any additional note..."></textarea>
+    </section>
+
+    <div class="actions">
+      <button class="save-btn" onclick="saveInvoice()">💾 Save Invoice</button>
+      <button class="whatsapp-btn" onclick="sendWhatsApp()">📲 WhatsApp</button>
+      <button class="clear-btn" onclick="clearInvoice()">🗑️ Clear</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Parbez Works</p>
+    <p>Electrical • False Ceiling • Plumbing</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
